@@ -12,3 +12,8 @@ def about():
     return render_template('about.html')
 
 app.run(debug=True)
+
+#@app.route('/')
+@app.route('/macro')
+def macro():
+    return render_template('macro.html')
