@@ -1,76 +1,14 @@
-<svg fill="pink" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".1" viewbox="50 0 1000 902" width="100%" height= xmlns="http://www.w3.org/2000/svg">
+<svg fill="#FFC0CB" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".1" viewbox="50 0 1000 902" width="100%" height= xmlns="http://www.w3.org/2000/svg">
   
-  <!---
-  { AB: "Alberta",
-    AK: "Alaska",
-    AL: "Alabama",
-    AR: "Arkansas",
-    AZ: "Arizona",
-    BC: "British Columbia",
-    CA: "California",
-    CO: "Colorado",
-    CT: "Connecticut",
-    DC: "District Of Columbia",
-    DE: "Delaware",
-    FL: "Florida",
-    GA: "Georgia",
-    GU: "Guam",
-    HI: "Hawaii",
-    IA: "Iowa",
-    ID: "Idaho",
-    IL: "Illinois",
-    IN: "Indiana",
-    KS: "Kansas",
-    KY: "Kentucky",
-    LA: "Louisiana",
-    MA: "Massachusetts",
-    MB: "Manitoba",
-    MD: "Maryland",
-    ME: "Maine",
-    MI: "Michigan",
-    MN: "Minnesota",
-    MO: "Missouri",
-    MS: "Mississippi",
-    MT: "Montana",
-    Mexico: "Mexico",
-    NB: "New Brunswick",
-    NC: "North Carolina",
-    ND: "North Dakota",
-    NE: "Nebraska",
-    NF: "Newfoundland",
-    NH: "New Hampshire",
-    NJ: "New Jersey",
-    NM: "New Mexico",
-    NS: "Nova Scotia",
-    NT: "Northwest Territories",
-    NU: "Nunavut",
-    NV: "Nevada",
-    NY: "New York",
-    OH: "Ohio",
-    OK: "Oklahoma",
-    ON: "Ontario",
-    OR: "Oregon",
-    PA: "Pennsylvania",
-    PE: "Prince Edwards Island",
-    PR: "Puerto Rico",
-    QC: "Quebec",
-    RI: "Rhode Island",
-    SC: "South Carolina",
-    SD: "South Dakota",
-    SK: "Saskatchewan",
-    TN: "Tennessee",
-    TX: "Texas",
-    UT: "Utah",
-    VA: "Virginia",
-    VI: "Virgin Islands",
-    VT: "Vermont",
-    WA: "Washington",
-    WI: "Wisconsin",
-    WV: "West Virginia",
-    WY: "Wyoming",
-    YT: "Yukon"}
-  -->
+  {% for i in range(7) %}
+    <rect x="-180" y="{{50+40*i}}" width="40" height="40" fill="{{colors[i]}}" stroke-width="0.5px" stroke="{{colors[i]}}"/>
+  {% endfor %}
+
+  <style>
+
+
   
+  </style>
   <path
     d="M884.5 549.6l1 1-2.3 0.7 0.7-1.4 0.6-0.3z m-6.4-15.3l0.5 1.8 0.7 0.6 0.7-0.6 0.4 0.9-1.6 1.1 0.3 0.5-0.8 1.3-0.2 1.3 2.2 0 1.8 1.5 0.3 1.6 0.7-0.2 0.8 1.5 0.9 0.4 1.5 0.1 1.5-1.2 0.8-1.2 0.7 2-4 1.7-0.4 0.9-1.2 0.9-0.6-2.3-0.7 1.1-1 0.7 0 0.8-0.8 0.7-0.7 0.1-0.6-1.6-0.5 0-0.5-0.3-1.1-0.7-1.1-2.4-3.4 1-1 0.2-7.1 1.7-6.1 1.3-0.3-0.2 0.1-8 6.7-1.6 9.6-2.2 2.6-3 0.9-0.2z"
     id="MA"

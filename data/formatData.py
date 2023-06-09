@@ -12,8 +12,10 @@ lines=lines[1::]
 for line in lines:
     y=line.split(',')
     dictionary[y[0]]={}
+    dictionary[y[0]]["cpi"]={}
+    dictionary[y[0]]["years"]={}
     for i in range(1,len(y)):
-        dictionary[y[0]][line1[i]]=y[i]
+        dictionary[y[0]]["cpi"][line1[i]]=y[i]
 
 f1.close()
 
@@ -26,7 +28,7 @@ line1=lines[0].split(',')
 lines=lines[1::] 
 for line in lines:
     y=line.split(',')
-    dictionary[y[0]][y[1]]=[y[2],y[3]]
+    dictionary[y[0]]["years"][y[1]]=[y[2],y[3]]
 
 f3.close()
 print(dictionary)
@@ -34,7 +36,7 @@ print(dictionary)
 
 #Save the json object to a file
 f2 = open("data.json", "w")
-json.dump(dictionary, f2, indent = None)
+json.dump(dictionary, f2, indent = 4)
 
 print(f2)
 f2.close()
