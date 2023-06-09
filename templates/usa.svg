@@ -1,8 +1,20 @@
 <svg fill="#FFC0CB" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".1" viewbox="50 0 1000 902" width="100%" height= xmlns="http://www.w3.org/2000/svg">
   
-  {% for i in range(7) %}
-    <rect x="-180" y="{{50+40*i}}" width="40" height="40" fill="{{colors[i]}}" stroke-width="0.5px" stroke="{{colors[i]}}"/>
+  {% for i in range(6) %}
+    {% if i%2 ==0 %}
+      <line x1="-179.5" y1="{{40+40*i}}" x2="-120" y2="{{40+40*i}}" stroke="{{colors[5-i]}}" stroke-width=".8px"/>
+      <text x="-133" y="{{38+40*i}}" fill="#ffffff" font-size="12" text-anchor="center">{{2*(7-i)}}</text>
+    {% endif %}
+    <rect x="-180" y="{{40+40*i}}" width="40" height="40" fill="{{colors[5-i]}}" stroke-width="0px" stroke="{{colors[5-i]}}"/>
+    <!-- <line x1="-180" y1="{{40+40*i}}" x2="-110" y2="{{40+40*i}}" stroke="white"/> -->
   {% endfor %}
+  
+  <line x1="-179.5" y1="{{40+40*6}}" x2="-120" y2="{{40+40*6}}" stroke="white" stroke-width="0.8px"/>
+  <text x="-133" y="{{38+40*6}}" fill="#ffffff" font-size="12" text-anchor="center">{{2*(7-6)}}</text>
+  <rect x="-180" y="{{40+40*7}}" width="40" height="40" fill="grey" stroke-width="0.5px" stroke="grey"/>
+  <text x="-130" y="{{40+40*7.5}}" fill="#ffffff" >No state</text>
+  <text x="-130" y="{{40+40*7.8}}" fill="#ffffff">minimum wage</text>
+
 
   <style>
 

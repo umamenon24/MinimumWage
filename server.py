@@ -83,24 +83,27 @@ def macro():
     #data --> state --> years --> year --> state/fed
     #data --> state --> cpi --> index/grocery/housing/util/tarnspo/health/misc
     
-    legend=[2*i for i in range(1,9)]
-    colors=[f"hsla(136, 54%, {90-6*i}%, 1)" for i in range(7)]
+    legend=[2*i for i in range(1,8)]
+    colors=[f"hsla(136, 54%, {90-10*i}%, 1)" for i in range(7)]
     #print(colors)
 
     # print(data)
     colorset=[]
-
+    colorDict={}
     for fiftyS in data:
         #state min wage in 2020
-        if fiftyS=="Oregon": print(data[fiftyS]["years"]["2020"][0])
-        if float(data[fiftyS]["years"]["2020"][0]) == 0: colorset.append("grey")
+        temp=ids[fiftyS]
+        #print(temp)
+        #if fiftyS=="Oregon": print(data[fiftyS]["years"]["2020"][0])
+        if float(data[fiftyS]["years"]["2020"][0]) == 0: colorDict[temp]="grey"
         else:
             for i in range(len(legend)):
                 if float(data[fiftyS]["years"]["2020"][0]) < legend[i]: 
-                    colorset.append(colors[i-1])
+                    colorDict[temp]=colors[i-1]
+                    #colorset.append(colors[i-1])
                     break
-  
-    return render_template('macro.html', states=states, codes=codes, legend=legend, colors=colors, colorset=colorset)
+    print(colorDict)
+    return render_template('macro.html', states=states, colors=colors, legend=legend, colorDict=colorDict)
 
 @app.route("/micro/<state>")
 def micro(state):

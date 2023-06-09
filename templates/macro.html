@@ -23,9 +23,9 @@
 </body>
 
 <style>
-  {% for i in range(52) %}
-    #{{codes[i]}} {
-      fill: {{colorset[i]}}
+  {% for code in colorDict %}
+    #{{code}} {
+      fill: {{colorDict[code]}}
     }
   {% endfor %}
 
