@@ -1,5 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200" width="500" height="200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
 
-    <rect width="300" height="200" fill="#00aaaa"/>
+    <!-- <rect width="800" height="400" fill="#00bbbb"/> -->
+    
+    <line class="axis" x1="50" y1="50" x2="50" y2="350" stroke-linecap="round" stroke-width="2px" stroke="#ffffff"/> <!-- y -->
+
+    <text x="300" y="35" font-size="16px" text-align="center" text-anchor="middle" stroke-width="0px" fill="#ffffff">Statewide Cost of Living</text>
+
+   
+    {% for i in range (8) %}
+        <text x="35" y="{{50+300/7*loop.index0+4}}" font-size="8px" text-align="center" color="#ffffff" stroke-width="0px" fill="#ffffff" text-anchor="middle">{{350-50*i}}.0</text>
+    {% endfor %}
+
+    {% for i in range(7) %}
+        <rect x="{{50+500/42+loop.index0*500/7}}" y="{{50+(350-bars[loop.index0][0])/350*300}}" width="{{500/7*2/3}}" height="{{bars[loop.index0][0]/350*300}}" fill="#dbac34" stroke-width="0px" stroke="red"/>
+        <text x="{{50+500/42+loop.index0*500/7+(500/7*2/3/2)}}" y="365" font-size="8px" text-align="center" stroke-width="0px" fill="#ffffff" text-anchor="middle">{{bars[loop.index0][1]}}</text>
+        <text x="{{50+500/42+loop.index0*500/7+(500/7*2/3/2)}}" y="335" font-size="8px" text-align="center" stroke-width="0px" fill="#ffffff" text-anchor="middle">{{bars[loop.index0][0]}}</text>
+    {% endfor %}
+
+    <line x1="{{50+500/7/6/2}}" y1="{{50+(350-100)/350*300}}" x2="{{550-500/7/6/2}}" y2="{{50+(350-100)/350*300}}" stroke-width="0.5px" stroke="#ffffff"/> <!-- x -->
+
+    
+
+    <line class="axis" x1="50" y1="350" x2="550" y2="350" stroke-linecap="round" stroke-width="2px" stroke="#ffffff"/> <!-- x -->
+
+
 
 </svg>

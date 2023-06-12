@@ -19,7 +19,7 @@ for line in lines:
 
 f1.close()
 
-f3=open("minwage.csv","r")
+f3=open("minwage1.csv","r")
 lines=f3.readlines()
 
 for i in range(0, len(lines)):
