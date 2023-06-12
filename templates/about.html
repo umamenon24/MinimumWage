@@ -11,23 +11,43 @@
   {% include 'nav.html' %}
 </head>
 <body>
-  <h1>About</h1>
+  <h1 style="color:#dbac34;">About</h1>
 
-  <p> This is a project that reports the cost of living in the United States by state and year.</p>
-  <p> The Cost of Living Index (COLI) is a measurement of the basic expenses of a location. It is also known as the Consumer Price Index. The cost of living
+  <p> This is a project that reports the minimum wage in the United States by state and year, and compares it with the cost of living in each state.</p>
+  <p> All minimum wage data has been adjusted for inflation, meaning to equal the value of a dollar in 2022. The Cost of Living Index (COLI) is a measurement of the basic expenses of a location. It is also known as the Consumer Price Index. The cost of living
     of an average city in the country is set to 100.0 and every other location is assessed based on that scale. For example, in 2023, New York State has a
     COLI of 148.2, meaning it is 48.2% more expensive to live in New York than in an average state.
   </p>
+  <br/>
+  <h4 style="color:#dbac34;">Data Pipeline:</h4>
+  <ol>
+    <li>Copied Kaggle data (min wage 1969-2020) onto a Google sheet and removed all columns excluding state, year, state minimum wage (2020 adjusted), and federal minimum wage (2020 adjusted)</li>
+    <li>Formatted Labor Law Center data (min wage 2021-2022, unadjusted) to match Kaggle data and combined the two spreadsheets.</li>
+    <li>Adjusted all 2020 and 2021 values to 2022 inflation by applying a 13.1% and 8.0% increase, respectively.</li>
+    <li>Copied 2022 MERIC data (COLI by state and expense) onto a separate spreadsheet.</li>
+    <li>In formatData.py, created a dictionary to store data and used readlines() to generate a list of the lines of MERIC data.</li>
+    <li>For each line, created a dictionary key that is a dictionary of the state. As values, added dictionaries for both "CPI" and "years" data.</li>
+    <li>Added data to "CPI" dictionary with the keys as the expense and the values as the cost index.</li>
+    <li>Used readlines() on the other spreadsheet.</li>
+    <li>Added to the "years" dictionary with the year as the key and a list containing the corresponding state and federal minimum wage as the value.</li>
+  </ol>
+  <br/>
 
-  <p> PROTOTYPES!:</p>
+  <h4 style="color:#dbac34;"> PROTOTYPES:</h4>
   <img src="ms1macro.jpeg" alt="macro" style="width:500px">
   <img src="/ms1micro.jpeg" alt="micro" style="width:500px">
-  <p> I received feedback to label the 100.0 baseline on the legend of the macro page and make it clear visually whether states are less or more expensive than the average.
+  <br/>
+  <br/>
+  <br/>
+
+  <p> I initially wanted to report on the COLI by state and year, but due to insufficient data, I switched to minimum wage. The macro map and micro line graph have 
+    remained the same design but are centered on minimum wage. I received feedback to label the 100.0 baseline on the legend of the macro page and make it clear visually whether states are less or more expensive than the average.
     I also received feedback to emphasize the line graph of the state and demephasize that of the national average for the micro page.
   </p>
-  <p> I will implement those changes. The state line could be a bright color, such as red or blue, and the U.S. average line could be grey. The pie chart will also contain the
-    specific percentages of each sector.
+  <p> I will implement those changes. The state line could be a bright color and the U.S. average line could be a neutral color. The second micro graph will also display 
+    specific values.
   </p>
+  
   {% include 'footer.html' %}
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>

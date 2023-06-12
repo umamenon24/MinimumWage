@@ -101,7 +101,6 @@ def macro():
                     colorDict[temp]=colors[i-1]
                     #colorset.append(colors[i-1])
                     break
-    print(colorDict['CA'])
 
     return render_template('macro.html', states=states, colors=colors, legend=legend, colorDict=colorDict)
 
@@ -129,12 +128,64 @@ def micro(state):
         stop1=float(microDataY[str(i+1)][1])
         ptsUS.append([start1,stop1])
 
-    
-    bars=[(round(float(data[state]["cpi"][key]),1), key) for key in data[state]["cpi"]]
+    line=round(float(data[state]["cpi"]['Index']),1)
+    bars=[(round(float(data[state]["cpi"][key]),1), key) for key in data[state]["cpi"]][1::]
     #data --> state --> cpi --> index/grocery/housing/util/tarnspo/health/misc
     #microDataB --> index/grocery/housing/util/tarnspo/health/misc --> val  
-    print(bars)
+    
 
-    return render_template('micro.html', state=state,states=states, ptsState=ptsState, ptsUS=ptsUS, bars=bars)
+    gen=[]
+    temp, temp1, avgN=0,0,0
+    for i in range(1968,1996): temp+=float(microDataY[str(i)][0])
+    for i in range(1996,2023): temp1+=float(microDataY[str(i)][0])
+
+    #from 1968 to 2022, the state's minimum wage has, on average, [0]
+    if temp>temp1: gen.append('decreased')
+    elif temp<temp1:gen.append('increased')
+    else: gen.append('stayed the same')
+    #as the federal minimum wage has decreased.
+    #0
+
+    avgS=round((temp+temp1)/55,2)
+    for i in range(1968,2023): avgN+=float(microDataY[str(i)][1])
+    avgN=round(avgN/55,2)
+
+    #the state minimum wage is [1]
+    if avgN>avgS: 
+        gen.append('less than')
+        gen.append("low") #2!!!!
+    elif avgN<avgS:
+        gen.append('greater than')
+        gen.append("high")
+    else: 
+        gen.append('equal to')
+        gen.append("standard (equal to federal rate)")
+    
+    #the federal minimum wage -- 
+    gen.append(avgS)
+    gen.append(avgN)
+    #$[3]/hour as compared to $[4]/hour
+    
+    #state has a coli of [5]
+    gen.append(line)
+    # meaning it is 
+    if (100-line)<0: 
+        gen.append(f"{round(abs(100-line),1)}% more")
+        gen.append("high")
+    else: 
+        gen.append(f"{round((100-line),1)}% less")
+        gen.append("low")
+    # [6] expensive to live here than in the average U.S. city. 
+    print(gen)
+
+    #The [7] cost of living
+    if gen[2] =='equal to' and abs(100-line)<=1: gen.append('does correlate')
+    elif gen[7]==gen[2]: gen.append('does correlate')
+    else: gen.append('does not correlate')
+    # with the [2] minimum wage
+
+
+
+    return render_template('micro.html', state=state,states=states, ptsState=ptsState, ptsUS=ptsUS, line=line, bars=bars, gen=gen)
 
 app.run(debug=True)

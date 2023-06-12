@@ -5,9 +5,12 @@
     <line class="axis" x1="50" y1="50" x2="50" y2="350" stroke-linecap="round" stroke-width="2px" stroke="#ffffff"/> <!-- y -->
     <line class="axis" x1="50" y1="350" x2="750" y2="350" stroke-linecap="round" stroke-width="2px" stroke="#ffffff"/> <!-- x -->
 
+    <text x="400" y="35" font-size="16px" text-align="center" text-anchor="middle" stroke-width="0px" fill="#ffffff">Minimum Wage Over Time</text>
+    <text x="400" y="52" font-size="8px" text-align="center" text-anchor="middle" stroke-width="0px" fill="#ffffff">All values adjusted for inflation (2022)</text>
+
 
     {% for i in range(0,17,4) %}
-    <text x="40" y="{{50+300/16*(16-i)+4}}" font-size="8px" text-align="center" text-anchor="middle" stroke-width="0px" fill="#ffffff">{{i}}</text>
+    <text x="35" y="{{50+300/16*(16-i)+4}}" font-size="8px" text-align="center" text-anchor="middle" stroke-width="0px" fill="#ffffff">{{i}}.00</text>
     {% endfor %}
 
     {% for pt in ptsState %}
@@ -23,5 +26,13 @@
         <line x1="{{50+(700/110)+(loop.index0*700/55)}}" y1="{{50+(300/18)*(18-pt[0])}}" x2="{{50+(700/110)+((loop.index0+1)*700/55)}}" y2="{{50+(300/18)*(18-pt[1])}}" stroke="#ffffff"/>
 
     {% endfor %}
+
+    <line x1="730" y1="65" x2="750" y2="65" stroke-width="1px" stroke="#ffffff"/> <!-- natl leg -->
+    <text x="725" y="67" font-size="8px" stroke-width="0px" fill="#ffffff" text-anchor="end">Federal Min. Wage</text>
+    <line x1="730" y1="80" x2="750" y2="80" stroke-width="1px" stroke="#dbac34"/> <!-- state leg -->
+    <text x="725" y="82" font-size="8px" stroke-width="0px" fill="#dbac34" text-anchor="end">State Min. Wage</text>
+
+    <text x="400" y="395" font-size="13px" text-align="center" stroke-width="0px" fill="#ffffff" text-anchor="middle">Year</text>
+    <text x="48" y="220" transform="rotate(-90, 40, 250)" fill="#ffffff" font-size="13px">Minimum Wage</text>
 
 </svg>

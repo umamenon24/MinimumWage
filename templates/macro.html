@@ -8,18 +8,35 @@
   {% include 'nav.html' %}
 </head>
 <body>
-  <h1>Macro</h1>
+  <h1>2022 Minimum Wage By State</h1>
  
   
 
   <div id="usa">
     {% include 'usa.svg' %}
   </div>
-  {% include 'footer.html' %}
+  
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
+  <h4 style="font-size:19px; color:#dbac34;">Summary</h4>
+  <p style="font-size:16px;">
+    The federal minimum wage in 2022 was $7.25. That year, Washington, D.C had the highest minimum wage law at $16.10/hour, followed by California with $15.00/hour. Excluding five 
+    states with no separate minimum wage law, Oklahoma had the lowest minimum wage mandate at $2.00/hour, followed by Wyoming and Georgia with $5.15/hour. A significant amount of
+    states have minimum wages that correspond to the federal law.
+  </p>
+  <br/>
+  <h4 style="font-size:19px; color:#dbac34;">Takeaways</h4>
+  <ol style="font-size:16px;">
+    <li>Minimum wage correlates with population: for the most part, states with greater populations (clustered on the coasts) have higher minimum wage laws in place.</li>
+    <li>Minimum wage correlates with political beliefs: traditionally liberal states have instituted higher minimum wage, and the opposite is also true.</li>
+    <li>Five states (LA, MS, TN, AL, SC) have no state minimum wage and three states (WY, OK, GA) have minimum wages below the federal law. In most cases, workers in these states are 
+      entitled to federal minimum wage. However, many are exempt from the federal Fair Labor Standards Act and therefore not legally entitled to $7.25/hour.</li>
+  </ol>
   
+  <br/>
+  <br/>
+  {% include 'footer.html' %}
 </body>
 
 <style>
