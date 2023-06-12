@@ -11,7 +11,7 @@
   {% include 'nav.html' %}
 </head>
 <body>
-  <h1>{{state}} Report</h1>
+  <h1>{{state}}</h1>
   <br/>
   {% include 'line.svg' %}
   
@@ -25,7 +25,7 @@
   <p style="font-size:16px;">
    Real minimum wage is the minimum wage adjusted for inflation.
    From 1968 to 2022, {{state}}'s real minimum wage has, on average, {{gen[0]}} as the federal minimum wage has decreased.
-   The state minimum wage is {{gen[1]}} the federal minimum wage — ${{gen[3]}}/hour as compared to ${{gen[4]}}/hour.
+   From 1968 to 2022, the average state minimum wage was {{gen[1]}} the federal minimum wage — ${{gen[3]}}/hour as compared to ${{gen[4]}}/hour.
    {{state}} has an overall COLI of {{gen[5]}}, meaning it is {{gen[6]}} expensive to live here than in the average U.S. city.
    The {{gen[7]}} cost of living {{gen[8]}} with the {{gen[2]}} minimum wage.
   </p>
