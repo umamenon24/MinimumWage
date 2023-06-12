@@ -172,9 +172,12 @@ def micro(state):
     if (100-line)<0: 
         gen.append(f"{round(abs(100-line),1)}% more")
         gen.append("high")
-    else: 
+    elif (100-line)>0: 
         gen.append(f"{round((100-line),1)}% less")
         gen.append("low")
+    else:
+        gen.append(f"{round(abs(100-line),1)}% more")
+        gen.append("standard (equal to federal)")
     # [6] expensive to live here than in the average U.S. city. 
     print(gen)
 
