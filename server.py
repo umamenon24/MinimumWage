@@ -69,7 +69,7 @@ codes=list(ids.values())
 @app.route("/")
 @app.route('/about')
 def about():
-    return render_template('about.html', states=states)
+    return render_template('index.html', states=states)
 
 
 @app.route("/macro")
